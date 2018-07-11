@@ -1,0 +1,32 @@
+{
+	"name": "Chrome jQuery Injector",
+	"version": "0.1",
+	"description": "Run custom jQuery code on any website. Includes an easy to use code editor.",
+	"manifest_version": 2,
+	"icons": {
+		"128": "images/icon_128.png"
+	},
+	"background": {
+		"persistent": false,
+		"scripts": [
+			"src/background_script.js"
+		]
+	},
+	"permissions": [
+		"activeTab",
+		"declarativeContent",
+		"storage",
+		"http://*/",
+		"https://*/",
+		"tabs"
+	],
+	"content_security_policy": "script-src 'self' 'unsafe-eval' https://*.googleapis.com; object-src 'self'",
+	"options_page": "src/options.html",
+	"page_action": {
+		"default_popup": "src/default_popup-page_action.html",
+		"default_icon": {
+			"16": "images/icon_16.png",
+			"128": "images/icon_128.png"
+		}
+	}
+}

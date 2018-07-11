@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="lib/codemirror/codemirror-5.39.0.css">
+		<style>
+			body { margin: 0; padding: 6px; min-width: 500px; }
+			button { outline: none; height: 21px; }
+			code { padding: 2px 4px; font-size: inherit; line-height: inherit; color: #c7254e; white-space: nowrap; background-color: #f9f2f4; border-radius: 4px; white-space: pre-wrap; word-break: normal; }
+			p { margin-bottom: 0; }
+			
+			.CodeMirror { width: 100%; width: calc(100% - 2px); height: 200px; margin-bottom: 12px; border: 1px solid #666666; font-size: 14px; }
+				.CodeMirror .CodeMirror-placeholder { color: #949494; }
+				/* Tab character highlighter */
+				.cm-tab { background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=); background-position: right; background-repeat: no-repeat; }
+			.button_row { display: table; width: 100%; }
+				.button_row #save { float: left; }
+				.button_row #run { float: left; margin-left: 6px; }
+				.button_row #save_run { float: left; margin-left: 6px; font-weight: bold; }
+				.button_row .font_size_change { float: right; display: inline-block; font-size: 12px; line-height: 21px; }
+					.button_row .font_size_change a { text-decoration: none; color: #666666; font-weight: bold; }
+					.button_row .font_size_change #font_increase { margin-right: 6px; }
+			.note { padding: 6px; background-color: #f0f0f0; font-size: 12px; }
+		</style>
+	</head>
+	<body>
+		<div class="code_container">
+			<textarea id="code"></textarea>
+		</div>
+		<div class="button_row">
+			<button id="save">Save</button>
+			<button id="run">Run</button>
+			<button id="save_run">Save &amp; Run</button>
+			<span class="font_size_change">
+				<a href="#" id="font_increase">[+]</a>
+				<a href="#" id="font_decrease">[-]</a>
+			</span>
+		</div>
+		<p>Status: <span id="status">Waiting</span></p>
+		<p class="note">Use <code>$</code> for jQuery</p>
+		<!-- <p class="note">jQuery(document).ready(function($) { ... }</code> where <code>$</code> is the jQuery instance</p> -->
+		
+		<script src="lib/codemirror/codemirror-5.39.0.js"></script>
+		<script src="lib/codemirror/mode/javascript/javascript.js"></script>
+		<script src="lib/codemirror/addon/display/placeholder.js"></script>
+		<script src="lib/codemirror/addon/edit/matchbrackets.js"></script>
+		<script src="popup.js"></script>
+	</body>
+</html>
